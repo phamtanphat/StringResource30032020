@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <!--    Menu cap 1-->
-    <item
-        android:title="Tiếng Việt"
-        android:icon="@android:drawable/btn_plus"
-        android:id="@+id/menu_item_language_vn"/>
-    <item
-        android:title="Tiếng Anh"
-        android:icon="@android:drawable/btn_minus"
-        android:id="@+id/menu_item_language_en"/>
-    <item android:title="Chia se">
-        <menu>
-            <item
-                android:title="Facebook"
-                android:icon="@android:drawable/btn_minus"/>
-            <item
-                android:title="Github"
-                android:icon="@android:drawable/btn_minus"/>
-        </menu>
-    </item>
+    <group
+        android:checkableBehavior="single"
+        android:orderInCategory="1"
+        android:enabled="true">
+        <item
+            android:title="Tiếng Việt"
+            android:icon="@android:drawable/btn_plus"
+            android:id="@+id/menu_item_language_vn"/>
+        <item
+            android:title="Tiếng Anh"
+            android:icon="@android:drawable/btn_minus"
+            android:id="@+id/menu_item_language_en"/>
+    </group>
+
 </menu>
