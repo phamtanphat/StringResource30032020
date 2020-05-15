@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:text="Đăng nhập hệ thống"
+        android:text="@string/text_title"
         android:layout_centerHorizontal="true"
         android:textAllCaps="true"
         android:textStyle="bold"
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <EditText
-        android:hint="Nhập tài khoản"
+        android:hint="@string/hint_account"
         android:textSize="20sp"
         android:layout_marginTop="40dp"
         android:layout_below="@id/textviewTieude"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
-        android:hint="Nhập mật khẩu"
+        android:hint="@string/hint_pass"
         android:textSize="20sp"
         android:layout_marginTop="40dp"
         android:layout_below="@id/edittextTaikhoan"
@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
-        android:text="Đăng nhập"
+        android:text="@string/text_login"
         android:id="@+id/buttonDangnhap"
         android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
