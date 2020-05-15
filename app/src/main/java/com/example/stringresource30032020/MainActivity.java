@@ -3,10 +3,19 @@ package com.example.stringresource30032020;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageInstaller;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,13 +35,34 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_language_en:
-                Toast.makeText(this, "En", Toast.LENGTH_SHORT).show();
+                setLocale("en");
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
                 break;
             case R.id.menu_item_language_vn:
-                Toast.makeText(this, "Vn", Toast.LENGTH_SHORT).show();
+                setLocale("vi");
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
                 break;
         }
         item.setChecked(true);
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setLocale(String langCode) {
+        Locale locale = new Locale(langCode,"US");
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            configuration.setLocale(locale);
+        } else {
+            configuration.locale = locale;
+        }
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.N) {
+            getApplicationContext().createConfigurationContext(configuration);
+        } else {
+            resources.updateConfiguration(configuration, displayMetrics);
+        }
     }
 }
